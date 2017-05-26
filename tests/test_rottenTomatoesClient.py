@@ -25,7 +25,6 @@ class RottenTomatoesClientIntegrationTest(TestCase):
         self.assertTrue("counts" in result)
         self.assertTrue("results" in result)
 
-
     def test_browse_movies(self):
         result = RottenTomatoesClient.browse_movies(query=MovieBrowsingQuery())
         self.assertIsNotNone(result)
