@@ -32,7 +32,7 @@ class RottenTomatoesClient:
 
     @staticmethod
     def browse_tv_shows(category=TvBrowsingCategory.most_popular):
-        r = requests.get(url=RottenTomatoesClient.BROWSE_URL, params={"type": category.value})
+        r = requests.get(url=RottenTomatoesClient.BROWSE_URL, params={"type": category})
 
         r.raise_for_status()
 

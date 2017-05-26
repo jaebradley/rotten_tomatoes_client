@@ -17,3 +17,9 @@ class RottenTomatoesClientIntegrationTest(TestCase):
         self.assertTrue("movies" in result)
         self.assertTrue("tvCount" in result)
         self.assertTrue("tvSeries" in result)
+
+    def test_browse_tv_shows(self):
+        result = RottenTomatoesClient.browse_tv_shows()
+        self.assertIsNotNone(result)
+        self.assertTrue("counts" in result)
+        self.assertTrue("results" in result)
