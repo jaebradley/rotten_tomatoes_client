@@ -1,6 +1,7 @@
 from unittest import TestCase
 
 from rotten_tomatoes.client import RottenTomatoesClient
+from rotten_tomatoes.query import MovieBrowsingQuery
 
 
 class RottenTomatoesClientIntegrationTest(TestCase):
@@ -20,6 +21,13 @@ class RottenTomatoesClientIntegrationTest(TestCase):
 
     def test_browse_tv_shows(self):
         result = RottenTomatoesClient.browse_tv_shows()
+        self.assertIsNotNone(result)
+        self.assertTrue("counts" in result)
+        self.assertTrue("results" in result)
+
+
+    def test_browse_movies(self):
+        result = RottenTomatoesClient.browse_movies(query=MovieBrowsingQuery())
         self.assertIsNotNone(result)
         self.assertTrue("counts" in result)
         self.assertTrue("results" in result)
