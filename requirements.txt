@@ -1,3 +1,4 @@
+coverage==4.4.1
 enum==0.4.6
 funcsigs==1.0.2
 mock==2.0.0
