@@ -1,7 +1,7 @@
 from unittest import TestCase
 
-from rotten_tomatoes.client import RottenTomatoesClient
-from rotten_tomatoes.query import MovieBrowsingQuery
+from rotten_tomatoes_client.client import RottenTomatoesClient
+from rotten_tomatoes_client.query import MovieBrowsingQuery
 
 
 class RottenTomatoesClientIntegrationTest(TestCase):

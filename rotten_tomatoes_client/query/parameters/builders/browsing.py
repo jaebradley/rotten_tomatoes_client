@@ -8,8 +8,8 @@ class MovieBrowsingQueryParametersBuilder:
             "minTomato": query.minimum_rating,
             "maxTomato": query.maximum_rating,
             "certified": query.certified_fresh,
-            "sort": query.sort_by,
-            "type": query.category
+            "sort": query.sort_by.value,
+            "type": query.category.value
         }
 
         if query.services is not None and len(query.services) > 0:
@@ -22,4 +22,4 @@ class MovieBrowsingQueryParametersBuilder:
 
     @staticmethod
     def get_concatenated_values(values):
-        return ";".join([value for value in values])
+        return ";".join([value.value for value in values])
