@@ -13,9 +13,13 @@ class MovieBrowsingQueryParametersBuilder:
         }
 
         if query.services is not None and len(query.services) > 0:
-            parameters["services"] = ";".join([service for service in query.services])
+            parameters["services"] = MovieBrowsingQueryParametersBuilder.get_concatenated_values(values=query.services)
 
         if query.genres is not None and len(query.genres) > 0:
-            parameters["genres"] = ";".join([genre for genre in query.genres])
+            parameters["genres"] = MovieBrowsingQueryParametersBuilder.get_concatenated_values(values=query.genres)
 
         return parameters
+
+    @staticmethod
+    def get_concatenated_values(values):
+        return ";".join([value for value in values])
