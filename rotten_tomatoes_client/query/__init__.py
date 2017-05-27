@@ -1,4 +1,4 @@
-from rotten_tomatoes.query.parameters.browsing import SortBy, MovieBrowsingCategory
+from rotten_tomatoes_client.query.parameters.browsing import SortBy, MovieBrowsingCategory
 
 
 class MovieBrowsingQuery:

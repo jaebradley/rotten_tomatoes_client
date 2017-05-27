@@ -1,7 +1,7 @@
 import requests
 
-from rotten_tomatoes.query.parameters.builders.browsing import MovieBrowsingQueryParametersBuilder
-from rotten_tomatoes.query.parameters.browsing import TvBrowsingCategory
+from rotten_tomatoes_client.query.parameters.builders.browsing import MovieBrowsingQueryParametersBuilder
+from rotten_tomatoes_client.query.parameters.browsing import TvBrowsingCategory
 
 
 class RottenTomatoesClient:
@@ -32,7 +32,7 @@ class RottenTomatoesClient:
 
     @staticmethod
     def browse_tv_shows(category=TvBrowsingCategory.most_popular):
-        r = requests.get(url=RottenTomatoesClient.BROWSE_URL, params={"type": category})
+        r = requests.get(url=RottenTomatoesClient.BROWSE_URL, params={"type": category.value})
 
         r.raise_for_status()
 
