@@ -13,8 +13,8 @@ class RottenTomatoesClient:
         pass
 
     @staticmethod
-    def search(term):
-        r = requests.get(url=RottenTomatoesClient.SEARCH_URL, params={"q": term})
+    def search(term, limit=10):
+        r = requests.get(url=RottenTomatoesClient.SEARCH_URL, params={"q": term, "limit": limit})
 
         r.raise_for_status()
 
