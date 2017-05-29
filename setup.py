@@ -3,7 +3,7 @@ setup(
   name="rotten_tomatoes_client",
   packages=find_packages(exclude=['tests*']),
   install_requires=["requests", "enum34"],
-  version="0.0.2",
+  version="0.0.3",
   description="Rotten Tomatoes Client",
   author="Jae Bradley",
   author_email="jae.b.bradley@gmail.com",

@@ -35,15 +35,15 @@ class MovieBrowsingCategory(Enum):
 
 
 class Genre(Enum):
-    action = 1
-    animation = 2
-    art_and_foreign = 3
-    classics = 4
-    comedy = 5
-    documentary = 6
-    drama = 7
-    horror = 8
-    kids_and_family = 9
-    mystery = 10
-    romance = 11
-    sci_fi_and_fantasy = 12
+    action = "1"
+    animation = "2"
+    art_and_foreign = "3"
+    classics = "4"
+    comedy = "5"
+    documentary = "6"
+    drama = "7"
+    horror = "8"
+    kids_and_family = "9"
+    mystery = "10"
+    romance = "11"
+    sci_fi_and_fantasy = "12"
