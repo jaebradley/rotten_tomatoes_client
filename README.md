@@ -1,5 +1,14 @@
 # Rotten Tomatoes Client (No API Key Necessary!)
 
+* [Introduction](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/README.md#introduction)
+* [The Not-So-Private Public API](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/README.md#the-not-so-private-public-api)
+* [Client](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/README.md#client)
+  * [Installation](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/README.md#installation)
+  * [Search](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/README.md#search)
+  * [Browse TV Shows](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/README.md#browse-tv-shows)
+  * [Browse Movies](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/README.md#browse-movies)
+
+
 ## Introduction
 
 I think Rotten Tomatoes is a pretty neat service. So I wanted to try and work on a couple projects (like a command line tool) that incorporate data from Rotten Tomatoes.
@@ -7,7 +16,7 @@ I think Rotten Tomatoes is a pretty neat service. So I wanted to try and work on
 After a short cursory investigation of existing Rotten Tomatoes Python clients (like [rottentomatoes](https://github.com/zachwill/rottentomatoes) and [rtsimple](https://github.com/celiao/rtsimple)) I noticed two things:
 
 1. Each client requires an API key for use (which is reasonable)
-2. The Rotten Tomatoes API is pretty damn impenetrable (less reasonable).
+2. The Rotten Tomatoes API is pretty hard to get access to (less reasonable).
 
 For example:
 
@@ -119,7 +128,7 @@ Additionally, it goes without saying that since this is not an officially-suppor
 
 ### Search
 
-The `search` method takes a `term` to search for and a `limit`. The default `limit` value is `10`.
+The [`search` method](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/rotten_tomatoes_client/client.py#L15-L21) takes a `term` to search for and a `limit`. The default `limit` value is `10`.
 
 ```python
 from rotten_tomatoes_client import RottenTomatoesClient
@@ -179,7 +188,7 @@ There are only three categories for browsing TV shows (located in the `TvBrowsin
 * `most_popular`
 * `certified_fresh`
 
-The `browse_tv_shows` method takes a `TvBrowsingCategory` value. If none is provided, it defaults to using `TvBrowsingCategory.most_popular`.
+The [`browse_tv_shows` method](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/rotten_tomatoes_client/client.py#L23-L31) takes [a `TvBrowsingCategory` value](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/rotten_tomatoes_client/query/parameters/browsing.py#L4-L7). If none is provided, it defaults to using [`TvBrowsingCategory.most_popular`](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/rotten_tomatoes_client/query/parameters/browsing.py#L6).
 
 ```python
 from rotten_tomatoes_client import RottenTomatoesClient, TvBrowsingCategory
@@ -219,7 +228,7 @@ result = RottenTomatoesClient.browse_tv_shows(category=TvBrowsingCategory.most_p
 
 ### Browse Movies
 
-The `browse_movies` method takes a `MovieBrowsingQuery` that is composed of the following parameters
+The [`browse_movies` method](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/rotten_tomatoes_client/client.py#L23-L31) takes [a `MovieBrowsingQuery`](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/rotten_tomatoes_client/client.py#L23-L31) that is composed of the following parameters
 * `minimum_rating`
   * Minimum allowable RottenTomatoes score
   * Defaults to `70`
@@ -227,20 +236,20 @@ The `browse_movies` method takes a `MovieBrowsingQuery` that is composed of the 
   * Maximum allowable RottenTomatoes score
   * Defaults to `100`
 * `services`
-  * A `list` of any of the `Service` enum values like `Service.amazon` or `Service.netflix`.
+  * A `list` of any of [the `Service` enum values](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/rotten_tomatoes_client/query/parameters/browsing.py#L10-L17) like [`Service.amazon`](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/rotten_tomatoes_client/query/parameters/browsing.py#L11) or [`Service.netflix`](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/rotten_tomatoes_client/query/parameters/browsing.py#L14).
   * Defaults to all streaming options.
 * `certified_fresh`
   * A `boolean` that represents whether movies that are (or are not) "Certified Fresh" should be considered.
   * Defaults to `False`
 * `genres`
-  * A `list` of any of the `Genre` enum values like `Genre.action` or `Genre.comedy`.
+  * A `list` of any of [the `Genre` enum values](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/rotten_tomatoes_client/query/parameters/browsing.py#L37-L49) like [`Genre.action`](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/rotten_tomatoes_client/query/parameters/browsing.py#L38) or [`Genre.comedy`](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/rotten_tomatoes_client/query/parameters/browsing.py#L42).
   * Defaults to all genres.
 * `sort_by`
-  * Can either sort by popularity or release date using the `SortBy` enum.
+  * Can either sort by popularity or release date using [the `SortBy` enum](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/rotten_tomatoes_client/query/parameters/browsing.py#L20-L22).
   * Defaults to sorting by popularity
 * `category`
   * Represents what types of movies to filter by, for example, ones that are opening in theaters, or have recently been released on DVD / streaming.
-  * Takes any of the `MovieBrowsingCategory` enum values like `MovieBrowsingCategory.certified_fresh_in_theaters`.
+  * Takes any of [the `MovieBrowsingCategory` enum values](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/rotten_tomatoes_client/query/parameters/browsing.py#L25-L34) like [`MovieBrowsingCategory.certified_fresh_in_theaters`](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/rotten_tomatoes_client/query/parameters/browsing.py#L29).
 
 ```python
 from rotten_tomatoes_client import RottenTomatoesClient, MovieBrowsingQuery, Service, Genre, SortBy, MovieBrowsingCategory
