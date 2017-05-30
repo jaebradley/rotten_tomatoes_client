@@ -16,7 +16,7 @@ I think Rotten Tomatoes is a pretty neat service. So I wanted to try and work on
 After a short cursory investigation of existing Rotten Tomatoes Python clients (like [rottentomatoes](https://github.com/zachwill/rottentomatoes) and [rtsimple](https://github.com/celiao/rtsimple)) I noticed two things:
 
 1. Each client requires an API key for use (which is reasonable)
-2. The Rotten Tomatoes API is pretty damn impenetrable (less reasonable).
+2. The Rotten Tomatoes API is pretty hard to get access to (less reasonable).
 
 For example:
 
