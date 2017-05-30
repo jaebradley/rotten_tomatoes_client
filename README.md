@@ -7,15 +7,15 @@ I think Rotten Tomatoes is a pretty neat service. So I wanted to try and work on
 After a short cursory investigation of existing Rotten Tomatoes Python clients (like [rottentomatoes](https://github.com/zachwill/rottentomatoes) and [rtsimple](https://github.com/celiao/rtsimple)) I noticed two things:
 
 1. Each client requires an API key for use (which is reasonable)
-2. The Rotten Tomatoes API is pretty damn impenetrable.
+2. The Rotten Tomatoes API is pretty damn impenetrable (less reasonable).
 
 For example:
 
-See [this GitHub issue](https://github.com/realpython/support/issues/268#issue-110173728):
 > Rotten Tomatoes is no longer issuing API keys at the time of registration. We will review each application to ensure the usage of our data aligns with Brand Guidelines and Terms of Service and will provision keys if approved. There is now a license fee to access the API details of which will be provided upon application approval. The approval process may take up to 60 days. Thank you for your patience.
+- [This GitHub issue](https://github.com/realpython/support/issues/268#issue-110173728):
 
-Or [this Reddit thread](https://www.reddit.com/r/webdev/comments/4649rw/rotten_tomatoes_api/d03ap2u/?utm_content=permalink&utm_medium=front&utm_source=reddit&utm_name=webdev):
 > Thank you for your interest in the Rotten Tomatoes API. API users have access to our existing API, which provides full access to Rotten Tomatoes Scores and Reviews Snippets (up to 20), for an annual fee which starts at $60,000.
+- [This Reddit thread](https://www.reddit.com/r/webdev/comments/4649rw/rotten_tomatoes_api/d03ap2u/?utm_content=permalink&utm_medium=front&utm_source=reddit&utm_name=webdev):
 
 ## The Not-So-Private Public API
 
