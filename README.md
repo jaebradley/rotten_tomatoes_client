@@ -12,10 +12,12 @@ After a short cursory investigation of existing Rotten Tomatoes Python clients (
 For example:
 
 > Rotten Tomatoes is no longer issuing API keys at the time of registration. We will review each application to ensure the usage of our data aligns with Brand Guidelines and Terms of Service and will provision keys if approved. There is now a license fee to access the API details of which will be provided upon application approval. The approval process may take up to 60 days. Thank you for your patience.
-[From this GitHub issue](https://github.com/realpython/support/issues/268#issue-110173728):
+
+[From this GitHub issue](https://github.com/realpython/support/issues/268#issue-110173728).
 
 > Thank you for your interest in the Rotten Tomatoes API. API users have access to our existing API, which provides full access to Rotten Tomatoes Scores and Reviews Snippets (up to 20), for an annual fee which starts at $60,000.
-[From this Reddit thread](https://www.reddit.com/r/webdev/comments/4649rw/rotten_tomatoes_api/d03ap2u/?utm_content=permalink&utm_medium=front&utm_source=reddit&utm_name=webdev):
+
+[From this Reddit thread](https://www.reddit.com/r/webdev/comments/4649rw/rotten_tomatoes_api/d03ap2u/?utm_content=permalink&utm_medium=front&utm_source=reddit&utm_name=webdev).
 
 ## The Not-So-Private Public API
 
@@ -29,7 +31,7 @@ and open up the `Network` tab / development console in your browser, you can see
 https://www.rottentomatoes.com/api/private/v2.0/browse?minTomato=70&maxTomato=100&maxPopcorn=100&services=amazon%3Bhbo_go%3Bitunes%3Bnetflix_iw%3Bvudu%3Bamazon_prime%3Bfandango_now&certified=true&sortBy=popularity&type=cf-in-theaters
 ```
 
-that returns a `JSON` response which looks like
+which returns a `JSON` response that looks like
 
 ```json
 {
