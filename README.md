@@ -12,14 +12,14 @@ After a short cursory investigation of existing Rotten Tomatoes Python clients (
 For example:
 
 > Rotten Tomatoes is no longer issuing API keys at the time of registration. We will review each application to ensure the usage of our data aligns with Brand Guidelines and Terms of Service and will provision keys if approved. There is now a license fee to access the API details of which will be provided upon application approval. The approval process may take up to 60 days. Thank you for your patience.
- - [This GitHub issue](https://github.com/realpython/support/issues/268#issue-110173728):
+[From this GitHub issue](https://github.com/realpython/support/issues/268#issue-110173728):
 
 > Thank you for your interest in the Rotten Tomatoes API. API users have access to our existing API, which provides full access to Rotten Tomatoes Scores and Reviews Snippets (up to 20), for an annual fee which starts at $60,000.
- - [This Reddit thread](https://www.reddit.com/r/webdev/comments/4649rw/rotten_tomatoes_api/d03ap2u/?utm_content=permalink&utm_medium=front&utm_source=reddit&utm_name=webdev):
+[From this Reddit thread](https://www.reddit.com/r/webdev/comments/4649rw/rotten_tomatoes_api/d03ap2u/?utm_content=permalink&utm_medium=front&utm_source=reddit&utm_name=webdev):
 
 ## The Not-So-Private Public API
 
-It turns out, if you go to the ["Certified Fresh Movies" page](https://www.rottentomatoes.com/browse/cf-in-theaters?minPopcorn=0&maxPopcorn=100&genres=1;2;4;5;6;8;9;10;11;13;18;14&sortBy=popularity)
+If you go to, say, the ["Certified Fresh Movies" page](https://www.rottentomatoes.com/browse/cf-in-theaters?minPopcorn=0&maxPopcorn=100&genres=1;2;4;5;6;8;9;10;11;13;18;14&sortBy=popularity)
 
 ![alt-text](http://imgur.com/0LQf7NQ.png)
 
@@ -29,7 +29,7 @@ and open up the `Network` tab / development console in your browser, you can see
 https://www.rottentomatoes.com/api/private/v2.0/browse?minTomato=70&maxTomato=100&maxPopcorn=100&services=amazon%3Bhbo_go%3Bitunes%3Bnetflix_iw%3Bvudu%3Bamazon_prime%3Bfandango_now&certified=true&sortBy=popularity&type=cf-in-theaters
 ```
 
-that returns a `JSON` response that looks like
+that returns a `JSON` response which looks like
 
 ```json
 {
@@ -100,15 +100,16 @@ that returns a `JSON` response that looks like
 
 Essentially, I've found these "public" endpoints for
 1. Browsing Movies & TV Shows
-  * Opening This Week, Top DVD & Streaming, New TV Tonight, etc.
+    * Opening This Week, Top DVD & Streaming, New TV Tonight, etc.
 2. Search
-  * Keyword search for movies, franchises, actors, tv shows, etc.
+    * Keyword search for movies, franchises, actors, tv shows, etc.
 
 I have *not* found endpoints for a given movie / tv show / actor, which is annoying.
 
 ## Client
 
 Obviously, with a limited (known) API, there will be an equally limited client interface.
+Additionally, it goes without saying that since this is not an officially-supported API, there are no guarantees about the reliability of this client.
 
 ### Installation
 
