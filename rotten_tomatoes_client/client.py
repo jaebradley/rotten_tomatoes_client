@@ -8,7 +8,7 @@ class RottenTomatoesClient:
     BASE_URL = "https://www.rottentomatoes.com/api/private"
     BASE_V1_URL = "{base_url}/v1.0".format(base_url=BASE_URL)
     BASE_V2_URL = "{base_url}/v2.0".format(base_url=BASE_URL)
-    MOVIE_DETAILS_URL = "{base_url}/v1.0/movies".format(base_url=BASE_V1_URL)
+    MOVIE_DETAILS_URL = "{base_url}/movies".format(base_url=BASE_V1_URL)
     SEARCH_URL = "{base_url}/search".format(base_url=BASE_V2_URL)
     BROWSE_URL = "{base_url}/browse".format(base_url=BASE_V2_URL)
 

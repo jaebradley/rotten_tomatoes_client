@@ -30,3 +30,9 @@ class RottenTomatoesClientIntegrationTest(TestCase):
         self.assertIsNotNone(result)
         self.assertTrue("counts" in result)
         self.assertTrue("results" in result)
+
+    def test_movie_details(self):
+        # The Godfather
+        result = RottenTomatoesClient.get_movie_details(movie_id=12911)
+        self.assertIsNotNone(result)
+        self.assertEqual("Paramount Pictures", result["studio"])
