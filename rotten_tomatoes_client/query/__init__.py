@@ -3,7 +3,8 @@ from rotten_tomatoes_client.query.parameters.browsing import SortBy, MovieBrowsi
 
 class MovieBrowsingQuery:
     def __init__(self, minimum_rating=70, maximum_rating=100, services=None, certified_fresh=False,
-                 genres=None, sort_by=SortBy.popularity, category=MovieBrowsingCategory.opening_in_theaters):
+                 genres=None, sort_by=SortBy.popularity, category=MovieBrowsingCategory.opening_in_theaters,
+                 page=1, limit=32):
         self.minimum_rating = minimum_rating
         self.maximum_rating = maximum_rating
         self.services = services
@@ -11,3 +12,5 @@ class MovieBrowsingQuery:
         self.genres = genres
         self.sort_by = sort_by
         self.category = category
+        self.page = page
+        self.limit = limit
