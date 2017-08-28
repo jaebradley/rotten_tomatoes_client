@@ -6,7 +6,7 @@ from rotten_tomatoes_client.query.parameters.builders.browsing import MovieBrows
 
 class MockQuery:
     def __init__(self, minimum_rating, maximum_rating, services, certified_fresh,
-                 genres, sort_by, category):
+                 genres, sort_by, category, page, limit):
         self.minimum_rating = minimum_rating
         self.maximum_rating = maximum_rating
         self.services = services
@@ -14,6 +14,8 @@ class MockQuery:
         self.genres = genres
         self.sort_by = sort_by
         self.category = category
+        self.page = page
+        self.limit = limit
 
 
 class MockValue:
@@ -27,12 +29,16 @@ class TestMovieBrowsingQueryParametersBuilder(TestCase):
     certified_fresh_value = "certified fresh"
     sort_by_value = MockValue(value="sort by")
     category_value = MockValue(value="category")
+    page = "page"
+    limit = "limit"
     base_expected = {
         "minTomato": minimum_rating_value,
         "maxTomato": maximum_rating_value,
         "certified": certified_fresh_value,
         "sort": "sort by",
-        "type": "category"
+        "type": "category",
+        "page": page,
+        "limit": limit
     }
     value_1 = MockValue(value="1")
     value_2 = MockValue(value="2")
@@ -46,14 +52,14 @@ class TestMovieBrowsingQueryParametersBuilder(TestCase):
     def test_when_services_and_genres_are_not_defined(self):
         query = MockQuery(minimum_rating=self.minimum_rating_value, maximum_rating=self.maximum_rating_value,
                           services=None, certified_fresh=self.certified_fresh_value, genres=None,
-                          sort_by=self.sort_by_value, category=self.category_value)
+                          sort_by=self.sort_by_value, category=self.category_value, page=self.page, limit=self.limit)
 
         self.assertEqual(MovieBrowsingQueryParametersBuilder.build(query=query), self.base_expected)
 
     def test_when_services_and_genres_are_empty(self):
         query = MockQuery(minimum_rating=self.minimum_rating_value, maximum_rating=self.maximum_rating_value,
                           services=[], certified_fresh=self.certified_fresh_value, genres=[],
-                          sort_by=self.sort_by_value, category=self.category_value)
+                          sort_by=self.sort_by_value, category=self.category_value, page=self.page, limit=self.limit)
 
         self.assertEqual(MovieBrowsingQueryParametersBuilder.build(query=query), self.base_expected)
 
@@ -62,7 +68,7 @@ class TestMovieBrowsingQueryParametersBuilder(TestCase):
         mock_concatenated_values.return_value = "mock concatenated values"
         query = MockQuery(minimum_rating=self.minimum_rating_value, maximum_rating=self.maximum_rating_value,
                           services=self.values, certified_fresh=self.certified_fresh_value, genres=None,
-                          sort_by=self.sort_by_value, category=self.category_value)
+                          sort_by=self.sort_by_value, category=self.category_value, page=self.page, limit=self.limit)
 
         expected_services = "mock concatenated values"
         expected = self.base_expected.copy()
@@ -77,7 +83,7 @@ class TestMovieBrowsingQueryParametersBuilder(TestCase):
 
         query = MockQuery(minimum_rating=self.minimum_rating_value, maximum_rating=self.maximum_rating_value,
                           services=None, certified_fresh=self.certified_fresh_value, genres=self.values,
-                          sort_by=self.sort_by_value, category=self.category_value)
+                          sort_by=self.sort_by_value, category=self.category_value, page=self.page, limit=self.limit)
 
         expected_services = "mock concatenated values"
         expected = self.base_expected.copy()

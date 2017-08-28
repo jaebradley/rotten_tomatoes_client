@@ -9,7 +9,9 @@ class MovieBrowsingQueryParametersBuilder:
             "maxTomato": query.maximum_rating,
             "certified": query.certified_fresh,
             "sort": query.sort_by.value,
-            "type": query.category.value
+            "type": query.category.value,
+            "page": query.page,
+            "limit": query.limit
         }
 
         if query.services is not None and len(query.services) > 0:
