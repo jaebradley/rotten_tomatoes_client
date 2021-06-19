@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Genza999/rotten_tomatoes_client.svg?branch=update_readme)](https://travis-ci.com/Genza999/rotten_tomatoes_client)
+
 # Rotten Tomatoes Client (No API Key Necessary!)
 
 * [Introduction](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/README.md#introduction)
