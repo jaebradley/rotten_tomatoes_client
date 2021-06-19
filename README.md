@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.com/Genza999/rotten_tomatoes_client.svg?branch=update_readme)](https://travis-ci.com/Genza999/rotten_tomatoes_client)
 [![PyPI version](https://badge.fury.io/py/rotten_tomatoes_client.svg)](https://badge.fury.io/py/rotten_tomatoes_client)
+[![codecov](https://codecov.io/gh/Genza999/rotten_tomatoes_client/branch/update_readme/graph/badge.svg?token=8BSTNZW3F7)](https://codecov.io/gh/Genza999/rotten_tomatoes_client)
 
 # Rotten Tomatoes Client (No API Key Necessary!)
 
