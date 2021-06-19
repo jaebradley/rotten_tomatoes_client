@@ -5,6 +5,6 @@ python:
 install: "pip install -r requirements.txt"
 # command to run tests
 script:
-  - nosetests --with-coverage # Add me to run nose with coverage
+  - nosetests --with-coverage --with-xunit # Add me to run nose with coverage
 after_success:
   - codecov
