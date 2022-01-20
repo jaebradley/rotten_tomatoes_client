@@ -1,0 +1,41 @@
+name: DraftKings Client
+
+on:
+  release:
+    types: [published]
+  push:
+    branches:
+      - v3
+  pull_request:
+  schedule:
+    - cron: '0 22 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.7, 3.8, 3.9]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+      - name: Set Up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install Poetry
+        run: |
+          bash ./build.sh
+      - name: Install dependencies, run linting, run tests, and generate code coverage
+        run: |
+          poetry install
+          poetry run pylint -j 4 rotten_tomatoes_client tests
+          poetry run coverage run -m pytest
+          poetry run coverage xml
+      - name: Upload Coverage To Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          files: ./coverage.xml
+          fail_ci_if_error: true
+          verbose: true
