@@ -1,11 +1,11 @@
-name: DraftKings Client
+name: Rotten Tomatoes Client
 
 on:
   release:
     types: [published]
   push:
     branches:
-      - v3
+      - master
   pull_request:
   schedule:
     - cron: '0 22 * * *'
