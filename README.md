@@ -360,9 +360,9 @@ result = RottenTomatoesClient.browse_movies(query=query)
 ```
 
 
-### Movie Detailes
+### Movie Details
 
-The [`movie detailes` method](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/rotten_tomatoes_client/client.py#L44-L51) takes a `movie_id` value to search for full detailes about movie.
+The [`movie details` method](https://github.com/jaebradley/rotten_tomatoes_client/blob/master/rotten_tomatoes_client/client.py#L44-L51) takes a `movie_id` parameter to search for full details about a movie.
 * `movie_id`
   * ID of the movie whose details are to be returned
 
