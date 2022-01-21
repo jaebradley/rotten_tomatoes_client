@@ -20,14 +20,14 @@ class RottenTomatoesClient:
 
     @staticmethod
     def search(term, limit=10):
-        return RottenTomatoesClient.handle_response(
+        return RottenTomatoesClient._handle_response(
             response=requests.get(url=RottenTomatoesClient.SEARCH_URL, params={"q": term, "limit": limit}),
             invalid_request_error=InvalidSearchParameters
         )
 
     @staticmethod
     def browse_movies(query):
-        return RottenTomatoesClient.handle_response(
+        return RottenTomatoesClient._handle_response(
             response=requests.get(url=RottenTomatoesClient.BROWSE_URL,
                                   params=MovieBrowsingQueryParametersBuilder.build(query=query)),
             invalid_request_error=InvalidMovieBrowsingParameters
@@ -35,21 +35,21 @@ class RottenTomatoesClient:
 
     @staticmethod
     def browse_tv_shows(category=TvBrowsingCategory.most_popular):
-        return RottenTomatoesClient.handle_response(
+        return RottenTomatoesClient._handle_response(
             response=requests.get(url=RottenTomatoesClient.BROWSE_URL, params={"type": category.value}),
             invalid_request_error=InvalidTvShowBrowsingParameters
         )
 
     @staticmethod
     def get_movie_details(movie_id):
-        return RottenTomatoesClient.handle_response(
+        return RottenTomatoesClient._handle_response(
             response=requests.get(url="{movie_details_url}/{movie_id}"
                                   .format(movie_details_url=RottenTomatoesClient.MOVIE_DETAILS_URL, movie_id=movie_id)),
             invalid_request_error=InvalidMovieDetailsParameters
         )
 
     @staticmethod
-    def handle_response(response, invalid_request_error):
+    def _handle_response(response, invalid_request_error):
         try:
             response.raise_for_status()
         except requests.exceptions.HTTPError as http_error:
